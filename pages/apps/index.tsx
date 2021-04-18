@@ -1,11 +1,24 @@
+import { useAsync } from 'react-async';
+
+import { loadAppList } from './_utils';
+
 const Apps = () => {
-    return (
-        <ul>
-            <li><a href="/apps/pWallet">pWallet</a></li>
-            <li><a href="/apps/darkpool">darkpool</a></li>
-            <li><a href="/apps/stackpad">stackpad</a></li>
-        </ul>
-    )
+    const { data, error, isPending } = useAsync({ promiseFn: loadAppList });
+
+    if (isPending) return 'Loading...'
+    if (error) return `Something went wrong: ${error.message}`
+    if (data)
+        return (
+            <ul>
+                {
+                    data.map((x) => {
+                        return (
+                            <li key={x.id}><a href={`/apps/${x.id}`}>{x.name}</a></li>
+                        )
+                    })
+                }
+            </ul>
+        )
 }
 
 export default Apps

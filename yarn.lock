@@ -1423,6 +1423,7 @@ __metadata:
     "@types/react": ^17.0.3
     next: 10.1.3
     react: 17.0.2
+    react-async: ^10.0.1
     react-dom: 17.0.2
     typescript: ^4.2.4
   languageName: unknown
@@ -4710,6 +4711,15 @@ fsevents@~2.3.1:
   bin:
     rc: ./cli.js
   checksum: ea2b7f7cee201a67923a2240de594a5d9b59bd312b814b06536d3d609a416dfd6fb9b85ea2abfd3b8a4eb5ed33eaff946ee75a8f2b7fb10941073c5cfee6b7a5
+  languageName: node
+  linkType: hard
+
+"react-async@npm:^10.0.1":
+  version: 10.0.1
+  resolution: "react-async@npm:10.0.1"
+  peerDependencies:
+    react: ">=16.3.1"
+  checksum: dd7e80d975290d84fc257b278584189ca54f838f7b401bf8ee5b8de065c258f25f9eb8375c74ae941baf3eed99f9189fcd0ec601e3785a758cecd3017f0a3118
   languageName: node
   linkType: hard
 
