@@ -1,15 +1,30 @@
 {
   "name": "apps-nng",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
+  "workspaces": [
+    "apps"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "@paciolan/remote-component": "^2.11.0",
+    "@polkadot/api": "4.5.1",
+    "@polkadot/extension-dapp": "0.37.2",
+    "@polkadot/keyring": "6.1.1",
+    "@polkadot/react-identicon": "0.73.1",
+    "@polkadot/ui-keyring": "0.73.1",
+    "@polkadot/util-crypto": "6.1.1",
     "next": "10.1.3",
     "react": "17.0.2",
     "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.41",
+    "@types/react": "^17.0.3",
+    "typescript": "^4.2.4"
   }
 }

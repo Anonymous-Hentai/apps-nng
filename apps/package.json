@@ -1,0 +1,16 @@
+{
+  "name": "apps",
+  "workspaces": [
+    "darkpool",
+    "p-wallet",
+    "stackpad"
+  ],
+  "devDependencies": {
+    "webpack": "5.33.2",
+    "webpack-cli": "4.6.0"
+  },
+  "dependencies": {
+    "ts-loader": "^8.1.0",
+    "typescript": "^4.2.4"
+  }
+}
