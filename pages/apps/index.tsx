@@ -1,6 +1,6 @@
 import { useAsync } from 'react-async';
 
-import { loadAppList } from './_utils';
+import { loadAppList } from './[appId]/_utils';
 
 const Apps = () => {
     const { data, error, isPending } = useAsync({ promiseFn: loadAppList });

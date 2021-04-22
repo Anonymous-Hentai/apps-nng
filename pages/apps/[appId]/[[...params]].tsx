@@ -1,7 +1,7 @@
 import { useAsync } from 'react-async';
 import { useRouter } from 'next/router';
 
-import { RemoteComponent } from '../../components/RemoteComponent/RemoteComponent';
+import { RemoteComponent } from '../../../components/RemoteComponent/RemoteComponent';
 
 import { loadApp } from './_utils';
 import type { IAppDefinition } from './_utils';

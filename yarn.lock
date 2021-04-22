@@ -410,6 +410,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@phala/nng-router@workspace:packages/router":
+  version: 0.0.0-use.local
+  resolution: "@phala/nng-router@workspace:packages/router"
+  dependencies:
+    "@types/route-parser": ^0.1.3
+    route-parser: ^0.0.5
+  peerDependencies:
+    react: 17.0.2
+    react-dom: 17.0.2
+  languageName: unknown
+  linkType: soft
+
 "@polkadot/api-derive@npm:4.5.1":
   version: 4.5.1
   resolution: "@polkadot/api-derive@npm:4.5.1"
@@ -1046,6 +1058,13 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: 5bcaabadc90a23ad9008540eae98a5819b638c4cf1b968adc67be47d6a8dc8cb100061d877dae97618fb275e405dc484b37154080c7ac0ea7df5efcdd8f98c24
+  languageName: node
+  linkType: hard
+
+"@types/route-parser@npm:^0.1.3":
+  version: 0.1.3
+  resolution: "@types/route-parser@npm:0.1.3"
+  checksum: 3ee0fc8f085a68d1eb3ecf0b862a4b8123463e225ad153283fa9c0ffac577bc915571a907662f6b829853630c2e01959f2056cb2b4f95a8a53159ea13c48d6ed
   languageName: node
   linkType: hard
 
@@ -4355,9 +4374,16 @@ fsevents@~2.3.1:
   version: 0.0.0-use.local
   resolution: "p-wallet@workspace:apps/p-wallet"
   dependencies:
+    "@phala/nng-router": "workspace:packages/router"
     lodash: ^4.17.21
     webpack: 5.33.2
     webpack-cli: 4.6.0
+  languageName: unknown
+  linkType: soft
+
+"packages@workspace:packages":
+  version: 0.0.0-use.local
+  resolution: "packages@workspace:packages"
   languageName: unknown
   linkType: soft
 
@@ -4884,6 +4910,13 @@ resolve@^1.9.0:
     hash-base: ^3.0.0
     inherits: ^2.0.1
   checksum: e0370fbe779b1f15d74c3e7dffc0ce40b57b845fc7e431fab8a571958d5fd9c91eb0038a252604600e20786d117badea0cc4cf8816b8a6be6b9166b565ad6797
+  languageName: node
+  linkType: hard
+
+"route-parser@npm:^0.0.5":
+  version: 0.0.5
+  resolution: "route-parser@npm:0.0.5"
+  checksum: 90b93f892a730508d96349981c72d9a0e275a047a9bdaaa768d7786716022c52c520e3113387618b682a2eef1db982528245685000b4c5e09c9ab387b059efc7
   languageName: node
   linkType: hard
 

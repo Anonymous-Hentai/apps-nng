@@ -4,6 +4,7 @@
     "build": "webpack --config webpack.config.js"
   },
   "dependencies": {
+    "@phala/nng-router": "workspace:packages/router",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
