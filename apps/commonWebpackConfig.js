@@ -14,6 +14,8 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
     externals: {
-        react: "react"
+        "react": "react",
+        "next/link": "next/link",
+        "@phala/nng-router": "@phala/nng-router",
     }
 };

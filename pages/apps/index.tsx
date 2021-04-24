@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useAsync } from 'react-async';
 
 import { loadAppList } from './[appId]/_utils';
@@ -13,7 +14,9 @@ const Apps = () => {
                 {
                     data.map((x) => {
                         return (
-                            <li key={x.id}><a href={`/apps/${x.id}`}>{x.name}</a></li>
+                            <li key={x.id}>
+                                <Link href={`/apps/${x.id}`}>{x.name}</Link>
+                            </li>
                         )
                     })
                 }

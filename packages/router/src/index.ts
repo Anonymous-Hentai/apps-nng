@@ -1,9 +1,10 @@
 import * as React from 'react';
 import Route from 'route-parser';
 
-export interface IRouterDefinition {
+export interface IRouterDefinition<T extends {} = {}> {
     id: string;
     rule: string;
+    render?: (match: T) => React.ReactNode;
 }
 
 export interface IRouterConfig {
@@ -13,6 +14,11 @@ export interface IRouterConfig {
 const pathJoin = (parts: string[], separator = '/') => {
     var replace = new RegExp(separator + '{1,}', 'g');
     return parts.join(separator).replace(replace, separator);
+}
+
+interface IMatchResult<T> extends IRouterDefinition<T> {
+    match: T;
+    rendered: React.ReactNode;
 }
 
 export const useRouter = (x: IRouterDefinition[], config: IRouterConfig) => {
@@ -28,7 +34,7 @@ export const useRouter = (x: IRouterDefinition[], config: IRouterConfig) => {
 
     const match = React.useCallback((url: string) => {
         let routerIndex = -1;
-        let match: any = null;
+        let match: Record<string, string> | null = null;
 
         for (let i = 0; i < routerMatchers.length; i++) {
             const routerMatcher = routerMatchers[i];
@@ -43,7 +49,13 @@ export const useRouter = (x: IRouterDefinition[], config: IRouterConfig) => {
 
         if (routerIndex === -1) return null
 
-        return { ...x[routerIndex], match: match! }
+        const definition = x[routerIndex]
+
+        return { 
+            ...definition, 
+            match: match!,
+            rendered: definition.render?.(match),
+        } as IMatchResult<{}>
     }, []);
 
     const matchCurrent = React.useCallback(() => {
