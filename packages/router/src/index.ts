@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useRouter as useNextRouter } from 'next/router';
 import Route from 'route-parser';
 
 export interface IRouterDefinition<T extends {} = {}> {
@@ -24,8 +25,27 @@ interface IMatchResult<T> extends IRouterDefinition<T> {
 export const useRouter = (x: IRouterDefinition[], config: IRouterConfig) => {
     const notInBrowser = typeof globalThis.Window === 'undefined';
 
+    const router = useNextRouter();
+    const [url, setUrl] = React.useState(router.asPath);
+
+    React.useEffect(() => {
+        const handleRouteChange = (url: string) => setUrl(url)
+
+        router.events.on('routeChangeStart', handleRouteChange)
+
+        return () => {
+            router.events.off('routeChangeStart', handleRouteChange)
+        }
+    }, [])
+
     const routerMatchers = React.useMemo(() => {
         return x.map((x) => {
+            if (x.rule === '*') {
+                return {
+                    match: () => ({})
+                }
+            }
+
             const rule = config.base ? pathJoin([config.base, x.rule]) : x.rule;
 
             return new Route(rule)
@@ -51,8 +71,8 @@ export const useRouter = (x: IRouterDefinition[], config: IRouterConfig) => {
 
         const definition = x[routerIndex]
 
-        return { 
-            ...definition, 
+        return {
+            ...definition,
             match: match!,
             rendered: definition.render?.(match),
         } as IMatchResult<{}>
@@ -61,9 +81,8 @@ export const useRouter = (x: IRouterDefinition[], config: IRouterConfig) => {
     const matchCurrent = React.useCallback(() => {
         if (notInBrowser) return null;
 
-        const url = window.location.pathname;
         return match(url)
-    }, []);
+    }, [url]);
 
     return {
         match, matchCurrent
