@@ -4,7 +4,6 @@ import { useRouter } from "@phala/nng-router";
 const Wallet = () => {
   const { matchCurrent } = useRouter([
     {
-      id: 'main',
       rule: '/:walletId/user/:userId',
       render: (match: { walletId: string; userId: string }) => (
         <>

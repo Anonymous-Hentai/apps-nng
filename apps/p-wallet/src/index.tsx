@@ -7,14 +7,12 @@ import Wallet from './Wallet';
 const RemoteComponent = () => {
   const { matchCurrent } = useRouter([
     {
-      id: 'wallet',
       rule: '/wallet/*params',
       render: () => (
         <Wallet />
       )
     },
     {
-      id: 'parachain',
       rule: '/parachain/:id',
       render: (match: { id: string }) => (
         <p style={{ color: 'green' }}>
@@ -23,7 +21,6 @@ const RemoteComponent = () => {
       )
     },
     {
-      id: 'fallback',
       rule: '*',
       render: () => (
         <p style={{ color: 'orange' }}>

@@ -3,7 +3,7 @@ import { useRouter as useNextRouter } from 'next/router';
 import Route from 'route-parser';
 
 export interface IRouterDefinition<T extends {} = {}> {
-    id: string;
+    id?: string;
     rule: string;
     render?: (match: T) => React.ReactNode;
 }
